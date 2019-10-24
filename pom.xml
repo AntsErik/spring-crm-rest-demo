@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.luv2code.springdemo</groupId>
+	<groupId>ee.praktika.springdemo</groupId>
 	<artifactId>spring-crm-rest</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
@@ -59,7 +59,7 @@
 			<version>${mysql.connector.version}</version>
 		</dependency>
 
-		<!-- C3PO -->
+		<!-- C3PO Connection pooling-->
 		<dependency>
 			<groupId>com.mchange</groupId>
 			<artifactId>c3p0</artifactId>
@@ -79,14 +79,7 @@
 			<version>2.3.1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
-
-		<!-- to compensate for java 9 not including jaxb -->
+		<!-- to compensate for java 9+ not including jaxb -->
 		<dependency>
 		    <groupId>javax.xml.bind</groupId>
 		    <artifactId>jaxb-api</artifactId>
