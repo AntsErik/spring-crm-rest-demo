@@ -3,10 +3,7 @@ package ee.praktika.springdemo.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import ee.praktika.springdemo.entity.Customer;
 import ee.praktika.springdemo.service.CustomerService;
@@ -33,6 +30,18 @@ public class CustomerRestController {
         if( theCustomer == null ) {
             throw new CustomerNotFoundException( "Customer id not found: " + customerId );
         }
+
+        return theCustomer;
+    }
+
+    //add mapping for POST / customer.
+    @PostMapping( "/customers" )
+    public Customer addCustomer( @RequestBody Customer theCustomer ){
+
+        //also just in case the data is passed in JSON, need to set the ID to 0 to force a new item save over updating.
+        theCustomer.setId( 0 );
+
+        customerService.saveCustomer( theCustomer );
 
         return theCustomer;
     }
